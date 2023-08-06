@@ -1,0 +1,28 @@
+.container{
+    height: 800px;
+    width: 800px;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div{
+    height: 46px;
+    width:46px;
+    background-color: grey;
+    border: 2px solid white
+}
+
+@keyframes fade {
+    from{
+        background-color: green;
+    }
+    to {
+        background-color: grey;
+    }
+}
+.xDiv{
+    display: flex;
+    width: 800px;
+    height: 800px;
+}
