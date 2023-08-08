@@ -13,16 +13,12 @@ div{
     border: 2px solid white
 }
 
-@keyframes fade {
-    from{
-        background-color: green;
-    }
-    to {
-        background-color: grey;
-    }
+.hoveringDiv{
+    animation: fade 1s ease-in-out;
 }
-.xDiv{
-    display: flex;
-    width: 800px;
-    height: 800px;
+
+
+@keyframes fade {
+    0%      {background-color: green;}
+    100%    {background-color: grey;}
 }
