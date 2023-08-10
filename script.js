@@ -1,11 +1,10 @@
 //javascript 
 
-    for(i = 0;i < 256; i++){
-        const container = document.querySelector('.container');
-        const newDiv = document.createElement('div');
-        newDiv.classList.add('box')
-        container.appendChild(newDiv);
-    }
+
+
+
+
+    
 function hover() {
     this.classList.add('hoveringDiv')
 }
@@ -17,12 +16,35 @@ function fade() {
     }, 500);
     
 }
+function setGrid() {
+    let gridNumber = document.getElementById("slider").value;
+    //telling css how many boxes per row  and column
+    document.getElementById('grid').style.gridTemplateColumns= `repeat(${gridNumber}, 1fr)`;
+    document.getElementById('grid').style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
+  
+    const container = document.getElementById('grid')
+    while(container.firstChild){// while loop to reset the grid
+        container.removeChild(container.firstChild); 
+    }
 
-   
-const divs = document.querySelectorAll('.box')
-divs.forEach(div => {
-    div.addEventListener('mouseover', hover);
-    div.addEventListener('mouseout', fade);
-  });
+
+    for(i = 0;i < (gridNumber * gridNumber); i++){ // for loop to add divs into the grid
+        const container = document.querySelector('.container');
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('box')
+        container.appendChild(newDiv);
+    }
+}
+
+
+    const grid = document.getElementById('updateGrid');
+    grid.addEventListener('click', setGrid);
+
+
+    const divs = document.querySelectorAll('.box')
+    divs.forEach(div => {
+        div.addEventListener('mouseover', hover);
+        div.addEventListener('mouseout', fade);
+    });
 
     

@@ -1,16 +1,41 @@
+body { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    font-size: 50px;
+}
+.girdAndMenu{
+    display: flex;
+    flex-direction: row;
+}
+.menu{
+    height: 800px;
+    width: 250px;
+    background-color: beige;
+    border: 2px solid black;
+}
 .container{
     height: 800px;
     width: 800px;
     border: 2px solid black;
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-grid;
+  
+  
+   
+    
 }
 
-div{
-    height: 46px;
-    width:46px;
+.box{
+    
+    /*height: 70px;
+    width:70px;*/
     background-color: grey;
-    border: 2px solid white
+    border: 2px solid black;
+
 }
 
 .hoveringDiv{
