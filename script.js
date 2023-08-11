@@ -17,8 +17,8 @@ function fade() {
     
 }
 
-function click(){
-     this.classList.add('clickingDiv');
+function unclick(){
+     this.classList.remove('hoveringDiv');
 }
 function setGrid() {
     let gridNumber = document.getElementById("slider").value;
@@ -43,9 +43,8 @@ function setGrid() {
     const divs = document.querySelectorAll('.box');
     divs.forEach((div) => {
     div.addEventListener('mouseover', hover);
-    div.addEventListener('mouseout', fade);
-    div.addEventListener('mousedown', startHold);
-    div.addEventListener('mouseup', cancelHold);
+    //div.addEventListener('mouseout', fade);
+    div.addEventListener('mousedown', unclick )
 
     
         });         

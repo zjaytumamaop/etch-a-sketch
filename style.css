@@ -31,14 +31,9 @@ body {
 }
 
 .hoveringDiv{
-    background-color: green;
-    animation: fade 1s ease-in-out;
+    background-color: var(--hover-color, yellow);
+    /*animation: fade 1s ease-in-out;*/
 }
-
-.clickingDiv{
-    background-color: black;
-}
-
 
 @keyframes fade {
     0%      {background-color: green;}
