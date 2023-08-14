@@ -1,27 +1,26 @@
 //javascript 
-
+ let buttonNum = 0;
 
 
 
 
     
-function hover() {
+function click() {
     this.classList.add('hoveringDiv')
-}
-
-function fade() {
-    const element = this;
-    setTimeout(function () {
-        element.classList.remove('hoveringDiv');
-    }, 500);
-    
 }
 
 function unclick(){
      this.classList.remove('hoveringDiv');
 }
+
+function updateGridNum(){
+    const Num = document.getElementById('buttonNum');
+    Num.innerHTML = buttonNum + ' X ' + buttonNum;
+}
+
 function setGrid() {
     let gridNumber = document.getElementById("slider").value;
+    buttonNum = gridNumber;
     //telling css how many boxes per row  and column
     document.getElementById('grid').style.gridTemplateColumns= `repeat(${gridNumber}, 1fr)`;
     document.getElementById('grid').style.gridTemplateRows = `repeat(${gridNumber}, 1fr)`;
@@ -33,6 +32,8 @@ function setGrid() {
     }
 
     // for loop to add divs into the grid
+   
+    
     for(i = 0;i < (gridNumber * gridNumber); i++){
         const newDiv = document.createElement('div');
         newDiv.classList.add('box')
@@ -42,25 +43,19 @@ function setGrid() {
         //addes eventlisteners to the divs 
     const divs = document.querySelectorAll('.box');
     divs.forEach((div) => {
-    div.addEventListener('mouseover', hover);
-    //div.addEventListener('mouseout', fade);
+    div.addEventListener('mouseover', click);
     div.addEventListener('mousedown', unclick )
 
-    
+    updateGridNum();
         });         
     
 }
-const holdDuration = 1000;
 
-function startHold() {
-    holdTimer = setTimeout(function(){
-        this.classList.add('clickingDiv');
-    }.bind(this), holdDuration);
-}
-
-function cancelHold() {
-    clearTimeout(holdTimer);
-}
+    const colorPicker = document.getElementById('colorPicker');
+    colorPicker.addEventListener('input', function(event){
+        const selectedColor = event.target.value;
+        document.documentElement.style.setProperty('--hover-color', selectedColor)
+    });
 
     const grid = document.getElementById('updateGrid');
     grid.addEventListener('click', setGrid);
