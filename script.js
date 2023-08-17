@@ -15,8 +15,10 @@ function unclick(){
 }
 
 function updateGridNum(){
+    
     const Num = document.getElementById('buttonNum');
     Num.innerHTML = buttonNum + ' X ' + buttonNum;
+    
 }
 function settingGrid(){//telling css how many boxes per row  and column
     document.getElementById('grid').style.gridTemplateColumns= `repeat(${gridNumber}, 1fr)`;
@@ -44,6 +46,10 @@ function addEventListener(){//addes eventlisteners to the divs
     divs.forEach((div) => {
     div.addEventListener('mouseover', click);
     div.addEventListener('mousedown', unclick );
+
+    //adds eventlistner to the slider to display the grid format before updating
+    const changingGridNumber = document.getElementById('slider');
+    changingGridNumber.addEventListener('input', updateGridNum);
     })
 }
 
@@ -51,7 +57,7 @@ function setGridValue(){
     gridNumber = document.getElementById("slider").value;
     buttonNum = gridNumber;  
 }
-function setGrid() {
+function update() {
     setGridValue();
     settingGrid();
     resetGrid();
@@ -60,14 +66,19 @@ function setGrid() {
     addEventListener();
 }
 
-    const colorPicker = document.getElementById('colorPicker');
-    colorPicker.addEventListener('input', function(event){
-        const selectedColor = event.target.value;
-        document.documentElement.style.setProperty('--hover-color', selectedColor)
-    });
+        const colorPicker = document.getElementById('colorPicker');
+        const hoveringDiv = document.querySelector('.hoveringDiv');
+
+        colorPicker.addEventListener('input', function(event){
+            const selectedColor = event.target.value;
+            document.documentElement.style.setProperty('--hover-color', selectedColor);
+            hoveringDiv.style.backgroundColor = selectedColor;
+        });
+
+
 
     const grid = document.getElementById('updateGrid');
-    grid.addEventListener('click', setGrid);
+    grid.addEventListener('click', update);
 
 
     
