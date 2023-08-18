@@ -1,24 +1,20 @@
 //javascript 
- let buttonNum = 0;
- let gridNumber = 16;
-
-
-
-
-    
-function click() {
+let buttonNum = 0;
+let gridNumber = 16;
+let selectedColor = '#000000';
+function hover() {
     this.classList.add('hoveringDiv')
+    document.documentElement.style.setProperty('--hover-color', selectedColor);
 }
 
-function unclick(){
+function unhover(){
     this.classList.remove('hoveringDiv');
 }
 
-function updateGridNum(){
-    
+
+function updateGridNum(){ // this updates the information of how big the grid is ex: 16 x 16 
     const Num = document.getElementById('buttonNum');
     Num.innerHTML = buttonNum + ' X ' + buttonNum;
-    
 }
 function settingGrid(){//telling css how many boxes per row  and column
     document.getElementById('grid').style.gridTemplateColumns= `repeat(${gridNumber}, 1fr)`;
@@ -44,8 +40,8 @@ function addDivs(){ // for loop to add divs into the grid
 function addEventListener(){//addes eventlisteners to the divs 
     const divs = document.querySelectorAll('.box');
     divs.forEach((div) => {
-    div.addEventListener('mouseover', click);
-    div.addEventListener('mousedown', unclick );
+    div.addEventListener('mouseover', hover);
+    div.addEventListener('mousedown', unhover );
 
     //adds eventlistner to the slider to display the grid format before updating
     const changingGridNumber = document.getElementById('slider');
@@ -53,7 +49,7 @@ function addEventListener(){//addes eventlisteners to the divs
     })
 }
 
-function setGridValue(){
+function setGridValue(){ //gets how big the grid is on each side with a slider in html
     gridNumber = document.getElementById("slider").value;
     buttonNum = gridNumber;  
 }
@@ -66,16 +62,10 @@ function update() {
     addEventListener();
 }
 
-        const colorPicker = document.getElementById('colorPicker');
-        const hoveringDiv = document.querySelector('.hoveringDiv');
-
+const colorPicker = document.getElementById('colorPicker');
         colorPicker.addEventListener('input', function(event){
-            const selectedColor = event.target.value;
-            document.documentElement.style.setProperty('--hover-color', selectedColor);
-            hoveringDiv.style.backgroundColor = selectedColor;
-        });
-
-
+        selectedColor = event.target.value;
+    });
 
     const grid = document.getElementById('updateGrid');
     grid.addEventListener('click', update);
