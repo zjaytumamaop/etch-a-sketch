@@ -1,14 +1,16 @@
 //javascript 
 let buttonNum = 0;
 let gridNumber = 16;
-let selectedColor = '#000000';
-
+let selectedColor = '#000000';//starting color
+let chosenColor = null; //colorPicker
 //starting_point 
 updateGridNum();
 
 function hover() {
-    this.classList.add('hoveringDiv')
-    document.documentElement.style.setProperty('--hover-color', selectedColor);
+    if(chosenColor){
+        this.id = chosenColor;
+    }
+    //document.documentElement.style.setProperty('--hover-color', selectedColor);
 }
 
 function unhover(){
@@ -64,12 +66,13 @@ function update() {
     addDivs();
     updateGridNum();
     addEventListener();
+    colorEvent();
 }
 
-const colorPicker = document.getElementById('colorPicker');
+/*const colorPicker = document.getElementById('colorPicker');
         colorPicker.addEventListener('input', function(event){
         selectedColor = event.target.value;
-    });
+    });*/
 
     const grid = document.getElementById('updateGrid');
     grid.addEventListener('click', update);
@@ -77,4 +80,16 @@ const colorPicker = document.getElementById('colorPicker');
 
     
 
-    
+function colorEvent(){
+
+    const colorButtons = document.querySelectorAll('.color');
+    colorButtons.forEach(button => {
+        button.addEventListener('click', () => {
+        const colorId = button.id;
+        console.log(colorId)
+        chosenColor = colorId;
+        console.log(chosenColor)
+        })
+    })
+
+}
