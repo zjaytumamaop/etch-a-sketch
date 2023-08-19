@@ -75,64 +75,57 @@ body {
 
 
 /* COLORS */
-.red, .orange, 
-.yellow, .lime_green, 
-.green, .teal, 
-.dark_blue, .baby_blue, 
-.blue, .purple, 
-.pink,.peach , 
-.brown, .grey, 
-.white, .black{
+.color{
     height: 50px;
     width: 110px;
 }
-.red {
+#red {
     background-color: red;
 }
 
-.orange{
+#orange{
     background-color: orange;
 }
 
-.yellow{
+#yellow{
     background-color: yellow;
 }
-.lime_green{
+#lime_green{
     background-color: limegreen;
 }
-.green{
+#green{
     background-color: green;
 }
-.teal{
+#teal{
     background-color: teal;
 }
-.dark_blue{
+#dark_blue{
     background-color: darkblue;
 }
-.baby_blue{
+#baby_blue{
     background-color: #00FFFF;
 }
-.blue{
+#blue{
     background-color: blue;
 }
-.purple{
+#purple{
     background-color: purple;
 }
-.pink{
+#pink{
     background-color: pink;
 }
-.peach{
+#peach{
     background-color: peachpuff;
 }
-.brown{
+#brown{
     background-color: brown;
 }
-.grey{
+#grey{
     background-color: grey;
 }
-.white{
+#white{
     background-color: white;
 }
-.black{
+#black{
     background-color: black;
 }
