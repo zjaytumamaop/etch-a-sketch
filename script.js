@@ -41,17 +41,9 @@ function addDivs(){ // for loop to add divs into the grid
 function addEventListener(){//addes eventlisteners to the divs 
     const divs = document.querySelectorAll('.box');
     divs.forEach((div) => {
-    //div.addEventListener('mouseover', hover);
-    //div.addEventListener('mousedown', unhover );
-
     //adds eventlistner to the slider to display the grid format before updating
     const changingGridNumber = document.getElementById('slider');
     changingGridNumber.addEventListener('input', updateGridNum);
-
-   
-
-
-  
     div.addEventListener('mousedown', () =>{
         isDrawing = true;
     })
