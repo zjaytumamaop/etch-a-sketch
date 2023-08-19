@@ -3,6 +3,7 @@ let buttonNum = 0;
 let gridNumber = 16;
 let selectedColor = '#000000';//starting color
 let chosenColor = null; //colorPicker
+let isDrawing = false; // to hold click 
 //starting_point 
 updateGridNum();
 
@@ -40,7 +41,7 @@ function addDivs(){ // for loop to add divs into the grid
 function addEventListener(){//addes eventlisteners to the divs 
     const divs = document.querySelectorAll('.box');
     divs.forEach((div) => {
-    div.addEventListener('mouseover', hover);
+    //div.addEventListener('mouseover', hover);
     //div.addEventListener('mousedown', unhover );
 
     //adds eventlistner to the slider to display the grid format before updating
@@ -48,6 +49,22 @@ function addEventListener(){//addes eventlisteners to the divs
     changingGridNumber.addEventListener('input', updateGridNum);
 
    
+
+
+  
+    div.addEventListener('mousedown', () =>{
+        isDrawing = true;
+    })
+
+    div.addEventListener('mouseup', () => {
+        isDrawing = false;
+    })
+    div.addEventListener("mousemove", (e) =>{
+        if(!isDrawing) return;
+
+        const {target} = event;
+        target.id = chosenColor;
+    })
     })
 }
 
@@ -73,11 +90,6 @@ function update() {
     addEventListener();
     colorEvent();
 }
-
-/*const colorPicker = document.getElementById('colorPicker');
-        colorPicker.addEventListener('input', function(event){
-        selectedColor = event.target.value;
-    });*/
 
     const grid = document.getElementById('updateGrid');
     grid.addEventListener('click', update);
