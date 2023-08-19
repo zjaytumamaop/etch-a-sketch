@@ -2,6 +2,10 @@
 let buttonNum = 0;
 let gridNumber = 16;
 let selectedColor = '#000000';
+
+//starting_point 
+updateGridNum();
+
 function hover() {
     this.classList.add('hoveringDiv')
     document.documentElement.style.setProperty('--hover-color', selectedColor);
