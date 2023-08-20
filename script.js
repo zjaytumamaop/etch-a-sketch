@@ -5,7 +5,7 @@ let selectedColor = '#000000';//starting color
 let chosenColor = null; //colorPicker
 let isDrawing = false; // to hold click 
 //starting_point 
-updateGridNum();
+
 
 function hover() {
     if(chosenColor){
@@ -16,6 +16,7 @@ function hover() {
 function updateGridNum(){ // this updates the information of how big the grid is ex: 16 x 16 
     const Num = document.getElementById('buttonNum');
     Num.innerHTML = buttonNum + ' X ' + buttonNum;
+    
 }
 function settingGrid(){//telling css how many boxes per row  and column
     document.getElementById('grid').style.gridTemplateColumns= `repeat(${gridNumber}, 1fr)`;
@@ -43,7 +44,7 @@ function addEventListener(){//addes eventlisteners to the divs
     divs.forEach((div) => {
     //adds eventlistner to the slider to display the grid format before updating
     const changingGridNumber = document.getElementById('slider');
-    changingGridNumber.addEventListener('input', updateGridNum);
+    changingGridNumber.addEventListener('input', update);
     div.addEventListener('mousedown', () =>{
         isDrawing = true;
     })
@@ -56,8 +57,16 @@ function addEventListener(){//addes eventlisteners to the divs
 
         const {target} = event;
         target.id = chosenColor;
+        
+      
     })
     })
+    const grid = document.getElementById('updateGrid');
+    grid.addEventListener('click', update);
+
+    const hide = document.getElementById('hide_border');
+    hide.addEventListener('click',hideBorder);
+
 }
 
 function setGridValue(){ //gets how big the grid is on each side with a slider in html
@@ -83,11 +92,6 @@ function update() {
     colorEvent();
 }
 
-    const grid = document.getElementById('updateGrid');
-    grid.addEventListener('click', update);
-
-    const hide = document.getElementById('hide_border');
-        hide.addEventListener('click',hideBorder);
     
 
 function colorEvent(){
@@ -103,3 +107,10 @@ function colorEvent(){
     })
 
 }
+
+
+//code
+
+update();
+
+    
