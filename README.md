@@ -15,3 +15,6 @@ new options to finish the project
 1. have a set of colors that the user can choose and make a class list for each color
 
 2. figure out this color wheel and how to set each div to have their own unique color
+
+8/20/23
+add more style and animations
